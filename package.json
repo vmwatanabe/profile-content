@@ -1,6 +1,6 @@
 {
   "name": "@vmwatanabe/content",
-  "license": "UNLICENSED",
+  "license": "MIT",
   "private": "true",
   "scripts": {
     "start": "webpack serve --port 9002",
