@@ -12,7 +12,8 @@
     "check-format": "prettier --check .",
     "test": "cross-env BABEL_ENV=test jest",
     "watch-tests": "cross-env BABEL_ENV=test jest --watch",
-    "coverage": "cross-env BABEL_ENV=test jest --coverage"
+    "coverage": "cross-env BABEL_ENV=test jest --coverage",
+    "deploy": "yarn build && aws s3 cp --recursive ./dist s3://watanabethedev.com/content"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",

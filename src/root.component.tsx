@@ -1,9 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
-import Title from "./components/title/title.component";
-import Body from "./components/body/body.component";
 import { getFileName } from "./root.helpers";
 import Page from "./components/page/page.component";
 import { ContentContainer } from "./root.styles";
+
+const route =
+  process.env.NODE_ENV === "production"
+    ? "https:/watanabethedev.com"
+    : "https://s3.amazonaws.com/watanabethedev.com";
 
 interface RootProps {
   pathname: string;
@@ -20,9 +23,7 @@ const Root: React.FC<RootProps> = ({ pathname }) => {
   const fetchPageData = useCallback(async () => {
     try {
       const response = await fetch(
-        `https://s3.amazonaws.com/watanabethedev.com/pages/${getFileName(
-          pathname
-        )}.json`
+        `${route}/pages/${getFileName(pathname)}.json`
       );
 
       const json = await response.json();
