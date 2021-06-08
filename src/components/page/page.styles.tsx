@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
-export const ContentContainer = styled.div``;
+export const PageContainer = styled.div`
+  padding: 2rem;
+`;
 
 export const Body = styled.div``;

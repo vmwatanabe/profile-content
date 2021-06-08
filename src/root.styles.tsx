@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
 export const ContentContainer = styled.div`
-  margin-top: 2rem;
+  color: #292c33;
+  background: white;
+  min-height: 100%;
 `;

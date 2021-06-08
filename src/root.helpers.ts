@@ -3,6 +3,6 @@ export const getFileName = (pathname: string) => {
     case "/":
       return "1";
     default:
-      return "1";
+      return pathname.substr(1, 1);
   }
 };

@@ -1,7 +1,7 @@
 import React from "react";
 import Body from "../body/body.component";
 import Title from "../title/title.component";
-import { ContentContainer } from "./page.styles";
+import { PageContainer } from "./page.styles";
 
 interface PageProps {
   title: string;
@@ -10,10 +10,10 @@ interface PageProps {
 
 const Page: React.FC<PageProps> = ({ title, content }) => {
   return (
-    <ContentContainer>
+    <PageContainer>
       <Title>{title}</Title>
       <Body content={content}></Body>
-    </ContentContainer>
+    </PageContainer>
   );
 };
 
