@@ -1,12 +1,9 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { getFileName } from "./root.helpers";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
 import Page from "./components/page/page.component";
+import Loading from "./components/loading/loading.component";
+import { getFileName } from "./root.helpers";
 import { ContentContainer } from "./root.styles";
-
-const route =
-  process.env.NODE_ENV === "production"
-    ? "https:/watanabethedev.com"
-    : "https://s3.amazonaws.com/watanabethedev.com";
+import { route } from "./config";
 
 interface RootProps {
   pathname: string;
@@ -35,12 +32,11 @@ const Root: React.FC<RootProps> = ({ pathname }) => {
     fetchPageData();
   }, [fetchPageData]);
 
-  if (!pageData) return null;
+  const content = useMemo(() => {
+    if (!pageData) return <Loading />;
+    return <Page title={pageData?.title} content={pageData.content} />;
+  }, [pageData]);
 
-  return (
-    <ContentContainer>
-      <Page title={pageData?.title} content={pageData.content} />
-    </ContentContainer>
-  );
+  return <ContentContainer>{content}</ContentContainer>;
 };
 export default Root;
