@@ -11,6 +11,7 @@ interface RootProps {
 
 interface PageData {
   title: string;
+  subTitle?: string;
   content: string[];
 }
 
@@ -34,7 +35,13 @@ const Root: React.FC<RootProps> = ({ pathname }) => {
 
   const content = useMemo(() => {
     if (!pageData) return <Loading />;
-    return <Page title={pageData?.title} content={pageData.content} />;
+    return (
+      <Page
+        title={pageData.title}
+        content={pageData.content}
+        subTitle={pageData.subTitle}
+      />
+    );
   }, [pageData]);
 
   return <ContentContainer>{content}</ContentContainer>;

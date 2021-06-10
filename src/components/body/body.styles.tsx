@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Paragraph = styled.p`
+  font-family: charter;
   margin-bottom: 1rem;
   line-height: 1.7;
 `;
